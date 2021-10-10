@@ -1,6 +1,6 @@
-package com.siblings.shoppingmall.domain.member;
+package com.siblings.shoppingmall.service;
 
-import org.springframework.stereotype.Service;
+import com.siblings.shoppingmall.entity.Member;
 
 import java.util.List;
 

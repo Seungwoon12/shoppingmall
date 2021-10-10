@@ -1,5 +1,7 @@
-package com.siblings.shoppingmall.domain.member;
+package com.siblings.shoppingmall.controller;
 
+import com.siblings.shoppingmall.entity.Member;
+import com.siblings.shoppingmall.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
