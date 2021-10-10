@@ -1,6 +1,7 @@
 package com.siblings.shoppingmall.service;
 
 
+import com.siblings.shoppingmall.controller.MemberController;
 import com.siblings.shoppingmall.entity.Member;
 import com.siblings.shoppingmall.repository.MemberRepository;
 import org.slf4j.Logger;
@@ -27,7 +28,7 @@ public class MemberServiceImpl implements MemberService {
     public List<Member> memberList() throws Exception {
         log.info("서비스 log");
         List<Member> listMember = memberRepository.memberList();
-        log.info("repository log")
+        log.info("repository log");
         return listMember;
     }
 }
