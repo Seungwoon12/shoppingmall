@@ -11,6 +11,6 @@ spring:
 
 mybatis:
   mapper-locations: mybatis/**/*-mapper.xml
-  type-aliases-package: com.siblings.shoppingmall.domain.member
+  type-aliases-package: com.siblings.shoppingmall.entity
   configuration:
     map-underscore-to-camel-case: true
