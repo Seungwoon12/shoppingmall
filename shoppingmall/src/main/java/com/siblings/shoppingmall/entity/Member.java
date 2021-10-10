@@ -1,4 +1,4 @@
-package com.siblings.shoppingmall.domain.member;
+package com.siblings.shoppingmall.entity;
 
 import lombok.Getter;
 import lombok.Setter;
