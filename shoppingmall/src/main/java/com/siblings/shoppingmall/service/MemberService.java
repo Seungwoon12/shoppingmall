@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface MemberService {
 
-    public List<Member> memberList() throws Exception;
+    public List<Member> lists() throws Exception;
+    public Long join(Member member) throws Exception;
 }
