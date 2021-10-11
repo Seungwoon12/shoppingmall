@@ -36,7 +36,12 @@ public class MemberController {
     @PostMapping("/join")
     public String create(@ModelAttribute Member member) throws Exception{
         memberService.join(member);
-        return "/member/success";
+        return "redirect:/member/success";
+    }
+
+    @GetMapping("/success")
+    public String success() throws Exception{
+        return "member/success";
     }
 
 
