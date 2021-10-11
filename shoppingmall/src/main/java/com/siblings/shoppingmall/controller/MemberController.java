@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,13 +30,18 @@ public class MemberController {
     @GetMapping("/join")
     public String createForm(Model model) throws Exception{
 
-        return "member/join";
+        return "member/joinForm";
     }
 
     @PostMapping("/join")
-    public String create(Model model, Member member) throws Exception{
+    public String create(@ModelAttribute Member member) throws Exception{
+        memberService.join(member);
+        return "redirect:/member/success";
+    }
 
-        return "";
+    @GetMapping("/success")
+    public String success() throws Exception{
+        return "member/success";
     }
 
 
