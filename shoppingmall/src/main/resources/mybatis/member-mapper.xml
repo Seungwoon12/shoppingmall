@@ -14,7 +14,18 @@
     </select>
 
     <insert id="save" parameterType="Member">
-        INSERT INTO MEMBER VALUES
+        INSERT INTO MEMBER
+        (
+            MEMBER_NO,
+            MEMBER_ID,
+            MEMBER_PW,
+            MEMBER_NAME,
+            MEMBER_NICK,
+            MEMBER_BIRTH,
+            MEMBER_ADDRESS,
+            MEMBER_PHONE
+        )
+        VALUES
         (
             #{memberNo},
             #{memberId},
@@ -23,10 +34,7 @@
             #{memberNick},
             #{memberBirth},
             #{memberAddress},
-            #{memberPhone},
-            #{memberAuth},
-            #{memberJoin},
-            #{memberGrade},
+            #{memberPhone}
         )
     </insert>
 </mapper>
