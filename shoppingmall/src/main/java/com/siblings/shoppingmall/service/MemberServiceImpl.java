@@ -26,7 +26,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public List<Member> lists() throws Exception {
-        return null;
+        return memberRepository.lists();
     }
 
     @Override
