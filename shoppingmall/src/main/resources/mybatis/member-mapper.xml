@@ -19,22 +19,16 @@
             MEMBER_NO,
             MEMBER_ID,
             MEMBER_PW,
-            MEMBER_NAME,
             MEMBER_NICK,
-            MEMBER_BIRTH,
-            MEMBER_ADDRESS,
-            MEMBER_PHONE
+            MEMBER_ADDRESS
         )
         VALUES
         (
             #{memberNo},
             #{memberId},
             #{memberPw},
-            #{memberName},
             #{memberNick},
-            #{memberBirth},
-            #{memberAddress},
-            #{memberPhone}
+            #{memberAddress}
         )
     </insert>
 </mapper>

@@ -5,17 +5,17 @@ import com.siblings.shoppingmall.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
 @RequestMapping("/member")
+@CrossOrigin(origins = "http://localhost:8081", allowedHeaders = "*")
 public class MemberController {
 
     private final Logger log = LoggerFactory.getLogger(MemberController.class);
@@ -27,6 +27,14 @@ public class MemberController {
         this.memberService = memberService;
     }
 
+    @GetMapping("/test")
+    @ResponseBody
+    public String test() {
+        log.info("vue-spring connection test");
+        return "TEST SUCCESS!!";
+    }
+
+
     @GetMapping("/join")
     public String createForm(Model model) throws Exception{
 
@@ -36,7 +44,7 @@ public class MemberController {
     @PostMapping("/join")
     public String create(@ModelAttribute Member member) throws Exception{
         memberService.join(member);
-        return "redirect:/member/success";
+        return "redirect:http://localhost:8081/";
     }
 
     @GetMapping("/success")
@@ -44,30 +52,13 @@ public class MemberController {
         return "member/success";
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @GetMapping
-    public String memberList(Model model) throws Exception {
-        log.info("컨트롤러 log");
+    @GetMapping("/list")
+    @ResponseBody
+    public ResponseEntity<List<Member>> memberList(Model model) throws Exception {
+        log.info("멤버 리스트");
         List<Member> members = memberService.lists();
 
-        for (Member member : members) {
-            //log.info("memberName={}", member.getMember_name());
-            System.out.println("memberName= " + member.getMemberName());
-        }
-
-        return "member/lists";
+        return new ResponseEntity<>(members, HttpStatus.OK);
 
     }
 }
