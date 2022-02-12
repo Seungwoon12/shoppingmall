@@ -15,7 +15,11 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/member")
+<<<<<<< HEAD
 @CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
+=======
+@CrossOrigin(origins = "http://localhost:8081", allowedHeaders = "*")
+>>>>>>> 5c5aae017ab6ee97a09d7bc5eb0dba69b13b2f6e
 public class MemberController {
 
     private final Logger log = LoggerFactory.getLogger(MemberController.class);
@@ -27,6 +31,7 @@ public class MemberController {
         this.memberService = memberService;
     }
 
+<<<<<<< HEAD
 
     @GetMapping("/test")
     @ResponseBody
@@ -35,6 +40,16 @@ public class MemberController {
         return "test success!";
     }
 
+=======
+    @GetMapping("/test")
+    @ResponseBody
+    public String test() {
+        log.info("vue-spring connection test");
+        return "TEST SUCCESS!!";
+    }
+
+
+>>>>>>> 5c5aae017ab6ee97a09d7bc5eb0dba69b13b2f6e
     @GetMapping("/join")
     public String createForm(Model model) throws Exception{
 
@@ -44,7 +59,7 @@ public class MemberController {
     @PostMapping("/join")
     public String create(@ModelAttribute Member member) throws Exception{
         memberService.join(member);
-        return "redirect:/member/success";
+        return "redirect:http://localhost:8081/";
     }
 
     @GetMapping("/success")
