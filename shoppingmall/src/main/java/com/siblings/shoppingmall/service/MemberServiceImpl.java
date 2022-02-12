@@ -1,8 +1,7 @@
 package com.siblings.shoppingmall.service;
 
-
-import com.siblings.shoppingmall.controller.MemberController;
 import com.siblings.shoppingmall.entity.Member;
+import com.siblings.shoppingmall.controller.MemberController;
 import com.siblings.shoppingmall.repository.MemberRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +25,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public List<Member> lists() throws Exception {
-        return null;
+        return memberRepository.lists();
     }
 
     @Override
